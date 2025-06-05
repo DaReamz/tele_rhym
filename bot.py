@@ -39,10 +39,6 @@ welcomed_users: Set[int] = set()
 # Track users in password approval flow
 users_in_approval_flow: Dict[int, Dict[str, Any]] = {}
 
-# Allow these commands even for unapproved users:
-if message.text in ['/start', 'giveaccess', '@danbell_bot giveaccess']:
-    # Process these without checking approval status
-
 async def get_access_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Handle the getaccess command to provide users with their chat ID."""
     if not update.effective_message or not update.effective_user:
